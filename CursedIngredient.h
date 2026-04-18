@@ -7,11 +7,11 @@ using namespace std;
 
 class CursedIngredient: virtual public Product {
 private:
-    double rarity;
+    double curseLevel;
     string curseType;
 public:
     CursedIngredient();
-    CursedIngredient(string name, double price, int quality, double rarity, string curseType);
+    CursedIngredient(string name, double price, int quality, double curseLevel, string curseType);
     CursedIngredient(const CursedIngredient& obj);
     CursedIngredient& operator=(const CursedIngredient& obj);
     virtual ~CursedIngredient();
