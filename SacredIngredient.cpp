@@ -29,8 +29,10 @@ SacredIngredient& SacredIngredient::operator=(const SacredIngredient& obj) {
     return *this;
 };
 
+SacredIngredient::~SacredIngredient() {};
+
 double SacredIngredient::addToPotion() {
-    return divineLevel * (quality / 10);
+    return divineLevel * (quality / 10.0);
 }
 
 double SacredIngredient::calculatePrice() const {
