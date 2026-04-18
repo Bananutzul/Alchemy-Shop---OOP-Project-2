@@ -1,7 +1,6 @@
 #pragma once
 
 #include <string>
-#include <vector>
 
 using namespace std;
 
@@ -19,7 +18,7 @@ public:
     virtual ~Product();
 
     virtual double addToPotion() = 0;
-    virtual double calculatePrice();
+    virtual double calculatePrice() const;
 
     friend ostream& operator<<(ostream &os, const Product& prod);
 };
