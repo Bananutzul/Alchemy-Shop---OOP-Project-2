@@ -6,7 +6,7 @@
 using namespace std;
 
 class SacredIngredient: virtual public Product {
-private:
+protected:
     double divineLevel; // will affect ingredient effectiveness, 0 - 100
     string essence; // determines the effect
 

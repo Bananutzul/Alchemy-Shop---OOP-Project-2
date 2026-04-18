@@ -6,7 +6,7 @@
 using namespace std;
 
 class CursedIngredient: virtual public Product {
-private:
+protected:
     double curseLevel;
     string curseType;
 public:
