@@ -16,7 +16,7 @@ public:
     CursedIngredient& operator=(const CursedIngredient& obj);
     virtual ~CursedIngredient();
 
-    void addToPotion() override;
+    double addToPotion() override;
     double calculatePrice() const override;
 
 };

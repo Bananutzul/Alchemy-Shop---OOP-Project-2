@@ -18,7 +18,7 @@ public:
     Potion& operator=(const Potion& obj);
     virtual ~Potion();
 
-    void addToPotion() override;
+    double addToPotion() override;
     double calculatePrice() const override;
     int calculateStability();
     void namePotion();

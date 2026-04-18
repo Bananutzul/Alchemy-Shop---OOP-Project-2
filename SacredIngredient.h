@@ -12,12 +12,13 @@ private:
 
 public:
     SacredIngredient();
-    SacredIngredient(string name, double price, int quality, string essence, double divineLevel);
+    SacredIngredient(string name, double price, int quality, 
+    string essence, double divineLevel);
     SacredIngredient(const SacredIngredient& obj);
     SacredIngredient& operator=(const SacredIngredient& obj);
 
     virtual ~SacredIngredient();
 
-    void addToPotion() override;
+    double addToPotion() override;
     double calculatePrice() const override;
 };
