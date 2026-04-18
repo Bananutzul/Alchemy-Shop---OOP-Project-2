@@ -18,6 +18,6 @@ public:
 
     virtual ~SacredIngredient();
 
-    double addToPotion() override;
+    void addToPotion() override;
     double calculatePrice() const override;
 };

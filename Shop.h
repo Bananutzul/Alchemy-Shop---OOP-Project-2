@@ -12,14 +12,14 @@ class Shop {
 private:
     vector<Product*> inventory;
     double balance;
+    string shopName;
 public:
     Shop();
-    Shop(double balance);
+    Shop(double balance, string shopName);
     Shop(const Shop& obj);
     Shop& operator=(const Shop& obj);
     ~Shop();
-
-    void Menu();
+    
     void addProduct(Product* prod);
     void buyProduct();
     void modifyBalance(double ammount);

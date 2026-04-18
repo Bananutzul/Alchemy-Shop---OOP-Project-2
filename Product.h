@@ -17,7 +17,7 @@ public:
     Product& operator=(const Product& prod);
     virtual ~Product();
 
-    virtual double addToPotion() = 0;
+    virtual void addToPotion() = 0;
     virtual double calculatePrice() const;
 
     friend ostream& operator<<(ostream &os, const Product& prod);
