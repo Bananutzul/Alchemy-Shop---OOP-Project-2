@@ -41,3 +41,7 @@ double CursedIngredient::calculatePrice() const {
         factor = 0.1;
     return price / factor;
 }
+
+Product* CursedIngredient::clone() const {
+    return new CursedIngredient(*this);
+}

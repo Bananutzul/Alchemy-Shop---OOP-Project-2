@@ -68,3 +68,7 @@ double Potion::calculatePrice() const {
 void Potion::setName(string temp) {
     potionName = temp;
 }
+
+Product* Potion::clone() const {
+    return new Potion(*this);
+}

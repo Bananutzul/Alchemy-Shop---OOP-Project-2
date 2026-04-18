@@ -24,6 +24,7 @@ public:
     double calculatePrice() const override;
     void calculateStability();
     void namePotion();
+    virtual Product* clone() const override;
 
     void setStability(double temp);
     void setName(string temp);

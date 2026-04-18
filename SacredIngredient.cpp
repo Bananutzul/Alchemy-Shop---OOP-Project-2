@@ -38,3 +38,7 @@ double SacredIngredient::addToPotion() {
 double SacredIngredient::calculatePrice() const {
     return price * (0.2 * quality + 0.8 * divineLevel);
 }
+
+Product* SacredIngredient::clone() const {
+    return new SacredIngredient(*this);
+}

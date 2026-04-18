@@ -19,6 +19,7 @@ public:
 
     virtual double addToPotion() = 0;
     virtual double calculatePrice() const;
+    virtual Product* clone() const = 0;
 
     friend ostream& operator<<(ostream &os, const Product& prod);
 };
