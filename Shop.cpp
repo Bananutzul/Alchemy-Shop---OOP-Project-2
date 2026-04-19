@@ -6,17 +6,14 @@
 using namespace std;
 
 Shop::Shop() {
-    balance = 0.0;
     shopName = "N/A";
 }
 
-Shop::Shop(double balance, string shopName) {
-    this->balance = balance;
+Shop::Shop(string shopName) {
     this->shopName = shopName;
 }
 
 Shop::Shop(const Shop& obj) {
-    balance = obj.balance;
     shopName = obj.shopName;
 
     for (int i = 0; i < obj.inventory.size(); i++)
@@ -27,7 +24,6 @@ Shop& Shop::operator=(const Shop& obj) {
     if (this == &obj)
         return *this;
 
-    balance = obj.balance;
     shopName = obj.shopName;
 
     for (int i = 0; i < inventory.size(); i++)
@@ -53,7 +49,7 @@ void Shop::addProduct(Product* prod) {
 }
 
 void Shop::displayInventory() {
-    cout << "Inventory: \n";
+    cout << "Shop Inventory: \n";
 
     for (int i = 0; i < this->inventory.size(); i++) {
         cout << "Item " << i + 1 << " : " << inventory[i]->getName() << " , " << inventory[i]->calculatePrice() << " gold\n"; 

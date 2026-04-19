@@ -19,8 +19,12 @@ public:
     ~Player();
 
     void buyProduct(Product* prod);
-    void modifyBalance(double ammount);
     void createPotion(int idx1, int idx2);
     void testPotion(Product* potion);
     void sellPotion(int idx);
+    void displayInventory();
+
+    double getBalance() const;
+    void setBalance(double ammount);
+    string getName() const;
 };

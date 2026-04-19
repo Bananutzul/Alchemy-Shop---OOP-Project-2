@@ -48,3 +48,46 @@ Player::~Player() {
 
     inventory.clear();
 }
+
+double Player::getBalance() const {
+    return this->balance;
+}
+
+string Player::getName() const {
+    return this->name;
+}
+
+void Player::setBalance(double ammount) {
+    this->balance += ammount;
+}
+
+
+void Player::buyProduct(Product* prod) {
+    double price = prod->calculatePrice();
+    double curr_balance = this->getBalance();
+
+    if (prod == nullptr) {
+        cout << "Invalid product!\n";
+        
+        return;
+    }
+
+    if (curr_balance < price) {
+        cout << "You don't have enough gold coins to buy this product!\n";
+
+        return;
+    }else {
+        this->inventory.push_back(prod->clone());
+        
+        this->setBalance(price * -1);
+    }
+
+}
+
+void Player::displayInventory() {
+        cout << this->getName() << "'s Inventory: \n";
+
+    for (int i = 0; i < this->inventory.size(); i++) {
+        cout << "Item " << i + 1 << " : " << inventory[i]->getName() << " , " << inventory[i]->calculatePrice() << " gold\n"; 
+    }
+}
