@@ -59,7 +59,3 @@ void Shop::displayInventory() {
         cout << "Item " << i + 1 << " : " << inventory[i]->getName() << " , " << inventory[i]->calculatePrice() << " gold\n"; 
     }
 }
-
-void Shop::createPotion(int idx1, int idx2) { //function that creates a potion from 2 ingredients in inventory
-    
-}
