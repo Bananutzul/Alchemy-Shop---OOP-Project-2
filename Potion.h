@@ -10,12 +10,10 @@ using namespace std;
 class Potion: public SacredIngredient, public CursedIngredient {
 private:
     double stability; // 0 - 100
-    string potionName;
 public:
     Potion();
     Potion(string name, double price, int quality, 
-    double divineLevel, string essence, double curseLevel, string curseType,
-    string potionName);
+    double divineLevel, string essence, double curseLevel, string curseType);
     Potion(const Potion& obj);
     Potion& operator=(const Potion& obj);
     virtual ~Potion();

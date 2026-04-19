@@ -55,3 +55,22 @@ void Shop::displayInventory() {
         cout << "Item " << i + 1 << " : " << inventory[i]->getName() << " , " << inventory[i]->calculatePrice() << " gold\n"; 
     }
 }
+
+Product* Shop::selectProduct(int idx) {
+    return this->inventory[idx - 1];
+}
+
+void Shop::itemDescription(int idx) {
+
+    Product* prod = this->inventory[idx - 1]->clone();
+
+    if (dynamic_cast<SacredIngredient*>(prod) != nullptr) {
+        cout << "Sacred Ingr\n";
+    }else if (dynamic_cast<CursedIngredient*>(prod) != nullptr) {
+        cout << "Cursed Ingr\n";
+    }else if (dynamic_cast<Potion*>(prod)  != nullptr){
+        cout << "Potion\n";
+    }else cout << "This isn't a valid item\n";
+
+    delete prod;
+}

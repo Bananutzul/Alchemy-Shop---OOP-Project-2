@@ -63,6 +63,7 @@ void Player::setBalance(double ammount) {
 
 
 void Player::buyProduct(Product* prod) {
+    
     double price = prod->calculatePrice();
     double curr_balance = this->getBalance();
 

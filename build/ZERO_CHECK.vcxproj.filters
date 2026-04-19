@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\user\Desktop\Facultate\Proiect2POO\Alchemy-Shop---OOP-Project-2\build\CMakeFiles\492ca6ffe7065cb1522925fc7b325d76\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{73A67521-EDAC-31F4-AEAC-0B8A2B5658C1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -8,19 +8,15 @@ using namespace std;
 
 Potion::Potion() : Product(), SacredIngredient(), CursedIngredient() {
     calculateStability();
-    potionName = "N/A";
 };
 
 Potion::Potion(string name, double price, int quality,
-double divineLevel, string essence, double curseLevel, string curseType,
-string potionName) : Product(name, price, quality), SacredIngredient(name, price, quality, essence, divineLevel), CursedIngredient(name, price, quality, curseLevel, curseType) {
+double divineLevel, string essence, double curseLevel, string curseType) : Product(name, price, quality), SacredIngredient(name, price, quality, essence, divineLevel), CursedIngredient(name, price, quality, curseLevel, curseType) {
     calculateStability();
-    this->potionName = potionName;
 };
 
 Potion::Potion(const Potion& obj) : Product(obj), SacredIngredient(obj), CursedIngredient(obj) {
     stability = obj.stability;
-    potionName = obj.potionName;
 };
 
 Potion& Potion::operator=(const Potion& obj) {
@@ -32,7 +28,6 @@ Potion& Potion::operator=(const Potion& obj) {
     CursedIngredient::operator=(obj);
 
     stability = obj.stability;
-    potionName = obj.potionName;
 
     return *this;
 }
@@ -66,7 +61,7 @@ double Potion::calculatePrice() const {
 }
 
 void Potion::setName(string temp) {
-    potionName = temp;
+    name = temp;
 }
 
 Product* Potion::clone() const {

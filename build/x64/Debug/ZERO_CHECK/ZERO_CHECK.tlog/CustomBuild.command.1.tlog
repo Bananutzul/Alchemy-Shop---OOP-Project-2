@@ -1,0 +1,10 @@
+^C:\USERS\USER\DESKTOP\FACULTATE\PROIECT2POO\ALCHEMY-SHOP---OOP-PROJECT-2\BUILD\CMAKEFILES\492CA6FFE7065CB1522925FC7B325D76\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2 -BC:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/build/AlchemyShop.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

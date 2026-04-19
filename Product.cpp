@@ -33,6 +33,8 @@ Product& Product::operator=(const Product& prod) {
     return *this;
 }
 
+Product::~Product() {};
+
 double Product::calculatePrice() const {
     return 0;
 }

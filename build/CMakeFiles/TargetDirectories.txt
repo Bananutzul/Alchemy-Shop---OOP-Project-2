@@ -1,0 +1,3 @@
+C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/build/CMakeFiles/AlchemyShop.dir
+C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/build/CMakeFiles/ZERO_CHECK.dir
