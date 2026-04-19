@@ -21,10 +21,11 @@ public:
     ~Shop();
     
     void addProduct(Product* prod);
-    void buyProduct();
+    void buyProduct(int idx);
     void modifyBalance(double ammount);
-    void createPotion();
-    void testPotion();
-
-    void showInventory() const;
+    void createPotion(int idx1, int idx2);
+    void testPotion(int idx);
+    void displayInventory();
+    void itemDescription(int idx);
+    void sellPotion(int idx);
 };

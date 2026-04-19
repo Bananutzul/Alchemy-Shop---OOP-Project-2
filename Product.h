@@ -22,4 +22,6 @@ public:
     virtual Product* clone() const = 0;
 
     friend ostream& operator<<(ostream &os, const Product& prod);
+
+    const string getName() const;
 };
