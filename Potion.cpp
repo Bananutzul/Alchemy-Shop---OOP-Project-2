@@ -40,6 +40,8 @@ double Potion::addToPotion() {
 
     return (sacredScore - cursedScore) * (stability / 100.0);
 }
+// Possible Potions :
+
 
 void Potion::setStability(double temp){
     stability = temp;
