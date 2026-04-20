@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <fstream>
+#include <sstream>
 
 using namespace std;
 
@@ -49,7 +51,9 @@ void Shop::addProduct(Product* prod) {
 }
 
 void Shop::displayInventory() {
-    cout << "Shop Inventory: \n";
+    cout << "---Shop Inventory---\n";
+
+    cout << inventory.size() << "\n";
 
     for (int i = 0; i < this->inventory.size(); i++) {
         cout << "Item " << i + 1 << " : " << inventory[i]->getName() << " , " << inventory[i]->calculatePrice() << " gold\n"; 

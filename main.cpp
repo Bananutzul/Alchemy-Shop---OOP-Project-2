@@ -8,20 +8,46 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
+#include <sstream>
 
 using namespace std;
+
+void loadInventory(const string& filename, Shop& shop) {
+    ifstream fin(filename);
+
+    string line;
+
+    while (getline(fin, line)) {
+        stringstream ss(line);
+        string type, name, essence;
+        double basePrice, essenceLevel;
+        int quality;
+
+        if (ss >> type >> name >> basePrice >> quality >> essence >> essenceLevel) {
+            if (type == "Sacred") {
+                shop.addProduct(new SacredIngredient(name, basePrice, quality, essence, essenceLevel));
+            }else if (type == "Cursed"){
+                shop.addProduct(new CursedIngredient(name, basePrice, quality, essenceLevel, essence));
+            }else cout << "Not a valid item!\n";
+        }
+
+        cout << "Product read\n";
+    }
+
+    fin.close();
+}
 
 int main() {
 
     Shop test("Alchemy Shop");
     Player player("Horia", 500.0);
 
-    test.addProduct(new SacredIngredient("Lunar Essence", 20.0, 8, "Lunar", 10));
-    test.addProduct(new Potion("Prod", 15.0, 7, 10, "Solar", 8, "Hell", "Fire Potion"));
+    loadInventory("input.txt", test);
 
     test.displayInventory();
-    player.displayInventory();
-    player.buyProduct(test.selectProduct(1));
-    player.displayInventory();
-    test.itemDescription(1);
+    // player.displayInventory();
+    // player.buyProduct(test.selectProduct(1));
+    // player.displayInventory();
+    // test.itemDescription(1);
 }

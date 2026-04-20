@@ -1,4 +1,4 @@
 Sacred Phoenix-Ash 100 8 Flame 75
 Sacred Leviathan-Tear 120 7 Oceanic 60
-Cursed Stygian-Water 75 5 50 Myth
-Cursed Medusa's-Eye 200 9 85 Earth
+Sacred Stygian-Water 75 5 Myth 50
+Sacred Medusa's-Eye 200 9 Earth 85
