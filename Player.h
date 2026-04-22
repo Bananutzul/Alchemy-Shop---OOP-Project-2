@@ -3,11 +3,12 @@
 #include <string>
 #include <vector>
 #include "Product.h"
+#include "Potion.h"
 
 using namespace std;
 
 class Player {
-private:
+public:
     string name;
     double balance;
     vector<Product*> inventory;
@@ -19,10 +20,12 @@ public:
     ~Player();
 
     void buyProduct(Product* prod);
-    void createPotion(int idx1, int idx2);
+    Product*& selectProduct(int idx);
+    Potion* createPotion(Product* &prod1, Product* &prod2);
     void testPotion(Product* potion);
     void sellPotion(int idx);
     void displayInventory();
+    void clearInventory();
 
     double getBalance() const;
     void setBalance(double ammount);

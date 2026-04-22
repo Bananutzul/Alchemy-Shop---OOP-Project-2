@@ -48,3 +48,7 @@ ostream& operator<<(ostream& os, const Product& prod) {
 const string Product::getName() const{
     return this->name;
 }
+
+const int Product::getQuality() const {
+    return quality;
+}

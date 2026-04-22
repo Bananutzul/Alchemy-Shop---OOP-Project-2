@@ -89,6 +89,61 @@ void Player::displayInventory() {
         cout << this->getName() << "'s Inventory: \n";
 
     for (int i = 0; i < this->inventory.size(); i++) {
-        cout << "Item " << i + 1 << " : " << inventory[i]->getName() << " , " << inventory[i]->calculatePrice() << " gold\n"; 
+        cout << inventory[i]->getName() << '\n';
+    }
+}
+
+Potion* Player::createPotion(Product* &prod1, Product* &prod2) {
+
+    double sacred_score = 0, cursed_score = 0;
+    int avgQuality = (prod1->getQuality() + prod2->getQuality()) / 2;
+    int avgBasePrice = (prod1->calculatePrice() + prod2->calculatePrice()) / 2.0;
+    string potion_name = "Potion of " + prod1->getName() + " and " + prod2->getName();
+    string sacred_essence = "Neutral", cursed_essence = "Neutral";
+
+    SacredIngredient* s1 = dynamic_cast<SacredIngredient*>(prod1);
+    CursedIngredient* c1 = dynamic_cast<CursedIngredient*>(prod1);
+    SacredIngredient* s2 = dynamic_cast<SacredIngredient*>(prod2);
+    CursedIngredient* c2 = dynamic_cast<CursedIngredient*>(prod2);
+
+    if (s1 != nullptr)
+        sacred_score += s1->addToPotion();
+    if (c1 != nullptr)
+        cursed_score += c1->addToPotion();
+    if (s2 != nullptr)
+        sacred_score += s2->addToPotion();
+    if (c2 != nullptr)
+        cursed_score += c2->addToPotion();
+
+    Potion* temp = new Potion(potion_name, avgBasePrice, avgQuality, sacred_score, sacred_essence, cursed_score, cursed_essence);
+
+    delete prod1;
+    delete prod2;
+
+    prod1 = nullptr;
+    prod2 = nullptr;
+
+    this->clearInventory();
+
+    return temp;
+}
+
+Product*& Player::selectProduct(int idx) {
+    return this->inventory[idx - 1];
+}
+
+void Player::clearInventory() {
+    bool stop = false;
+
+    while (!stop) {
+        stop = true;
+
+        for (int i = 0; i < this->inventory.size(); i++) {
+            if (inventory[i] == nullptr) {
+                inventory.erase(inventory.begin() + i);
+                stop = false;
+                break;
+            }
+        }
     }
 }

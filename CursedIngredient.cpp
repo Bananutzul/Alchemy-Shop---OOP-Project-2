@@ -36,10 +36,7 @@ double CursedIngredient::addToPotion() {
 }
 
 double CursedIngredient::calculatePrice() const {
-    double factor = 0.2 * quality + 0.8 * curseLevel;
-    if (factor < 0.1) 
-        factor = 0.1;
-    return price / factor;
+    return price + (0.2 * quality + 0.8 * curseLevel);
 }
 
 Product* CursedIngredient::clone() const {

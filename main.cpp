@@ -43,9 +43,20 @@ int main() {
     Shop test("Alchemy Shop");
     Player player("Horia", 500.0);
 
-    loadInventory("input.txt", test);
+    test.addProduct(new SacredIngredient("Phoenix-Ash", 100, 8, "Flame", 75));
+    test.addProduct(new CursedIngredient("Medusa's-Eye", 200, 9, 85, "Earth"));
 
-    test.displayInventory();
+    player.buyProduct(test.selectProduct(1));
+    player.buyProduct(test.selectProduct(2));
+
+    Product* item1 = player.selectProduct(1);
+    Product* item2 = player.selectProduct(2);
+
+    player.displayInventory();
+
+    player.inventory.push_back(player.createPotion(player.selectProduct(1), player.selectProduct(2)));
+
+    player.displayInventory();
     // player.displayInventory();
     // player.buyProduct(test.selectProduct(1));
     // player.displayInventory();

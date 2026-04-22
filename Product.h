@@ -24,4 +24,5 @@ public:
     friend ostream& operator<<(ostream &os, const Product& prod);
 
     const string getName() const;
+    const int getQuality() const;
 };
