@@ -97,6 +97,7 @@ void Menu::startMenu() {
                                     throw InvalidOptionException("Index Out of Range!\n");
                                 }else {
                                     player.buyProduct(shop.selectProduct(temp));
+                                    cout << "You successfully bought the product!\n";
                                 }
                             }
                         } catch (const InvalidOptionException& e) {
@@ -112,6 +113,111 @@ void Menu::startMenu() {
                         waitForEnter();
                         break;
                     case 3:
+                        clearScreen();
+
+                        cout << "Choose two ingredients to combine!\n";
+
+                        try {
+                            if (player.getInventory().size() == 0 || player.getInventory().size() == 1)
+                                throw InvalidOptionException("You don't have any items!\n");
+
+                            cout << "---Your Inventory---\n";
+                            player.displayInventory();
+
+                            int temp1, temp2;
+
+                            if (!(cin >> temp1)) {
+                                cin.clear();
+
+                                while (cin.get() != '\n')
+                                    continue;
+
+                                throw InvalidOptionException("Invalid Option!\n");
+                            }else {
+                                temp1--;
+
+                                if (temp1 < 0 || temp1 >= player.getInventory().size())
+                                    throw InvalidOptionException("Index Out of Range!\n");
+                            }
+                            cout << "Enter a second item!\n";
+
+                            if (!(cin >> temp2)) {
+                                cin.clear();
+
+                                while (cin.get() != '\n')
+                                    continue;
+
+                                throw InvalidOptionException("Invalid Option!\n");
+                            }else {
+                                temp2--;
+
+                                if (temp2 < 0 || temp2 >= player.getInventory().size())
+                                    throw InvalidOptionException("Index Out of Range!\n");
+                                else if (temp1 == temp2)
+                                    throw InvalidOptionException("You can't combine an item with itself!\n");
+                            }
+
+                            auto s1 = dynamic_cast<SacredIngredient*>(player.selectProduct(temp1));
+                            auto s2 = dynamic_cast<SacredIngredient*>(player.selectProduct(temp2));
+                            auto c1 = dynamic_cast<CursedIngredient*>(player.selectProduct(temp1));
+                            auto c2 = dynamic_cast<CursedIngredient*>(player.selectProduct(temp2));
+
+                            if ((s1 != nullptr || c1 != nullptr) && (s2 != nullptr || c2 != nullptr)) {
+                                Potion* potion = player.createPotion(player.selectProduct(temp1), player.selectProduct(temp2));
+
+                                double potion_price = potion->calculatePrice();
+
+                                player.setBalance(potion_price);
+
+                                player.buyProduct(potion);
+
+                                cout << "You have successfully created a potion!\n";
+                            }else throw InvalidOptionException("You haven't selected valid ingredients!\n");
+
+                        } catch (const InvalidOptionException& e) {
+                            cout << "\nERROR: " << e.what() << '\n';
+                        }
+
+                        waitForEnter();
+                        break;
+                    case 4:
+                        clearScreen();
+
+                        try {
+                            cout << "---Your Inventory---\n";
+                            player.displayInventory();
+
+                            if (player.getInventory().size() == 0)
+                                throw InvalidOptionException("You don't have any items!\n");
+                            else {
+                                cout << "Choose a potion to test!(Must be a potion)\n";
+
+                                int temp;
+
+                                if (!(cin >> temp)) {
+                                    cin.clear();
+
+                                    while (cin.get() != '\n')
+                                        continue;
+
+                                    throw InvalidOptionException("Invalid Option!\n");
+                                }else {
+                                    temp--;
+
+                                    if (temp < 0 || temp >= player.getInventory().size())
+                                        throw InvalidOptionException("Index Out of Range!\n");
+
+                                    else if (dynamic_cast<Potion*>(player.selectProduct(temp)) == nullptr)
+                                        throw InvalidOptionException("\nYou can't test something that's not a potion!!\n");
+
+                                    player.testPotion(player.selectProduct(temp));
+                                }
+                            }
+                        } catch (const InvalidOptionException& e) {
+                            cout << "\nERROR: " << e.what() << '\n';
+                        }
+
+                        waitForEnter();
                         break;
                     case 0:
                         cout << "Goodbye!\n";

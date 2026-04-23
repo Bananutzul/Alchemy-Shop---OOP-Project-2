@@ -429,7 +429,20 @@ void Player::displayInventory() {
         cout << "EMPTY\n";
     }else {
         for (int i = 0; i < this->inventory.size(); i++) {
-            cout << inventory[i]->getName() << '\n';
+            cout << "Item " << i + 1 << " : " << inventory[i]->getName() << " , " << inventory[i]->calculatePrice() << " gold  ";
+            cout << "Quality : " << this->inventory[i]->getQuality() << "  ";
+
+            auto s = dynamic_cast<SacredIngredient*>(inventory[i]);
+            auto c = dynamic_cast<CursedIngredient*>(inventory[i]);
+            auto p = dynamic_cast<Potion*>(inventory[i]);
+
+            if (p != nullptr) {
+                cout << "Type : Potion; Test for effect!\n";
+            }else if (s != nullptr) {
+                cout << "Type : Sacred; Divine Level: " << s->getDivineLevel() << "\n";
+            }else if (c != nullptr) {
+                cout << "Type : Cursed; Curse Level: " << c->getCurseLevel() << "\n";
+            }
         }
     }
 }
@@ -475,10 +488,6 @@ Potion* Player::createPotion(Product* &prod1, Product* &prod2) {
     prod2 = nullptr;
 
     this->clearInventory();
-
-    cout << temp->getStability() << '\n';
-
-    cout << temp->getEssence() << '\n';
 
     return temp;
 }
@@ -557,4 +566,8 @@ void Player::clearInventory() {
             }
         }
     }
+}
+
+const vector<Product*>& Player::getInventory() const {
+    return this->inventory;
 }

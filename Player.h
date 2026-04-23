@@ -31,4 +31,5 @@ public:
     double getBalance() const;
     void setBalance(double ammount);
     string getName() const;
+    const vector<Product*>& getInventory() const;
 };
