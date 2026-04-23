@@ -46,3 +46,7 @@ Product* SacredIngredient::clone() const {
 const string SacredIngredient::getEssence() const {
     return essence;
 }
+
+const double SacredIngredient::getDivineLevel() const {
+    return divineLevel;
+}

@@ -53,20 +53,35 @@ void Shop::addProduct(Product* prod) {
 void Shop::displayInventory() {
     cout << "---Shop Inventory---\n";
 
-    cout << inventory.size() << "\n";
+    if (this->inventory.size() == 0) {
+        cout << "EMPTY\n";
+    }else {
+        for (int i = 0; i < this->inventory.size(); i++) {
+            cout << "Item " << i + 1 << " : " << inventory[i]->getName() << " , " << inventory[i]->calculatePrice() << " gold  ";
+            cout << "Quality : " << this->inventory[i]->getQuality() << "  ";
 
-    for (int i = 0; i < this->inventory.size(); i++) {
-        cout << "Item " << i + 1 << " : " << inventory[i]->getName() << " , " << inventory[i]->calculatePrice() << " gold\n"; 
+            auto s = dynamic_cast<SacredIngredient*>(inventory[i]);
+            auto c = dynamic_cast<CursedIngredient*>(inventory[i]);
+            auto p = dynamic_cast<Potion*>(inventory[i]);
+
+            if (s) {
+                cout << "Type : Sacred; Divine Level: " << s->getDivineLevel() << "\n";
+            }else if (c) {
+                cout << "Type : Cursed; Curse Level: " << c->getCurseLevel() << "\n";
+            }else if (p) {
+                cout << "Type : Potion; Test for effect!\n";
+            }
+        }
     }
 }
 
 Product* Shop::selectProduct(int idx) {
-    return this->inventory[idx - 1];
+    return this->inventory[idx];
 }
 
 void Shop::itemDescription(int idx) {
 
-    Product* prod = this->inventory[idx - 1]->clone();
+    Product* prod = this->inventory[idx]->clone();
 
     if (dynamic_cast<SacredIngredient*>(prod) != nullptr) {
         cout << "Sacred Ingr\n";
@@ -77,4 +92,8 @@ void Shop::itemDescription(int idx) {
     }else cout << "This isn't a valid item\n";
 
     delete prod;
+}
+
+const vector<Product*>& Shop::getInventory() const {
+    return this->inventory;
 }

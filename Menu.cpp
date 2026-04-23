@@ -1,0 +1,128 @@
+#include "Menu.h"
+#include <iostream>
+#include <limits>
+#include "Exceptions.h"
+
+using namespace std;
+
+void waitForEnter() {
+    cout << "Press Enter to continue\n";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cin.get();
+}
+
+void clearScreen()
+{
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+}
+
+Menu::Menu(Player player, Shop shop) {
+    this->player = player;
+    this->shop = shop;
+}
+
+void Menu::startMenu() {
+    bool running = true;
+
+    while (running) {
+
+        clearScreen();
+
+        cout << "                                       ----Welcome to----\n";
+        cout << R"(______________ ______________    _____  .____   _________   ___ ______________   _____ _____.___.
+\__    ___/   |   \_   _____/   /  _  \ |    |  \_   ___ \ /   |   \_   _____/  /     \\__  |   |
+  |    | /    ~    \    __)_   /  /_\  \|    |  /    \  \//    ~    \    __)_  /  \ /  \/   |   |
+  |    | \    Y    /        \ /    |    \    |__\     \___\    Y    /        \/    Y    \____   |
+  |____|  \___|_  /_______  / \____|__  /_______ \______  /\___|_  /_______  /\____|__  / ______|
+                \/        \/          \/        \/      \/       \/        \/         \/\/
+                       ____________________________ _____________________
+                      /   _____/\__    ___/\_____  \\______   \_   _____/
+     ______   ______  \_____  \   |    |    /   |   \|       _/|    __)_   ______   ______
+    /_____/  /_____/  /        \  |    |   /    |    \    |   \|        \ /_____/  /_____/
+                     /_______  /  |____|   \_______  /____|_  /_______  /
+                             \/                    \/       \/        \/                          )";
+
+        cout << endl;
+
+        shop.displayInventory();
+
+        cout << "\nCurrent balance : " << player.getBalance() << '\n' << '\n';
+
+        cout << "---Choose an option---\n";
+        cout << "1.Buy a product\n";
+        cout << "2.Check your inventory\n";
+        cout << "3.Create a potion\n";
+        cout << "4.Test a potion\n";
+        cout << "5.Sell a potion\n";
+        cout << "6.Restock\n";
+        cout << "0.Exit\n";
+
+        try {
+            int option;
+
+            if (!(cin >> option)) {
+                cin.clear();
+
+                while (cin.get() != '\n')
+                    continue;
+
+                throw InvalidOptionException("Invalid Option!\n");
+            }else {
+                switch (option) {
+                    case 1:
+                        clearScreen();
+
+                        shop.displayInventory();
+
+                        cout << "\nChoose an item to purchase!\n";
+
+                        try {
+                            int temp;
+
+                            if (!(cin >> temp)) {
+                                cin.clear();
+
+                                while (cin.get() != '\n')
+                                    continue;
+
+                                throw InvalidOptionException("Invalid Option!\n");
+                            }else {
+                                temp--;
+
+                                if (temp < 0 || temp >= shop.getInventory().size()) {
+                                    throw InvalidOptionException("Index Out of Range!\n");
+                                }else {
+                                    player.buyProduct(shop.selectProduct(temp));
+                                }
+                            }
+                        } catch (const InvalidOptionException& e) {
+                            cout << "\nERROR: " << e.what() << '\n';
+                        }
+
+                        waitForEnter();
+                        break;
+                    case 2:
+                        clearScreen();
+                        cout << "---Your Inventory---\n";
+                        player.displayInventory();
+                        waitForEnter();
+                        break;
+                    case 3:
+                        break;
+                    case 0:
+                        cout << "Goodbye!\n";
+                        running = false;
+                        break;
+                    default:
+                        cout << "Not a valid option!\n";
+                }
+            }
+        } catch (const InvalidOptionException& e) {
+            cout << "\nERROR: " << e.what() << '\n';
+        }
+    }
+}

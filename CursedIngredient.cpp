@@ -46,3 +46,7 @@ Product* CursedIngredient::clone() const {
 const string CursedIngredient::getEssence() const {
     return curseType;
 }
+
+const double CursedIngredient::getCurseLevel() const {
+    return curseLevel;
+}

@@ -20,4 +20,6 @@ public:
     double calculatePrice() const override;
     virtual Product* clone() const override;
     const string getEssence() const;
+    const double getCurseLevel() const;
+
 };

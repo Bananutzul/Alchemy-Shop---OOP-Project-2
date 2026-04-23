@@ -425,10 +425,12 @@ void Player::buyProduct(Product* prod) {
 }
 
 void Player::displayInventory() {
-        cout << this->getName() << "'s Inventory: \n";
-
-    for (int i = 0; i < this->inventory.size(); i++) {
-        cout << inventory[i]->getName() << '\n';
+    if (this->inventory.size() == 0) {
+        cout << "EMPTY\n";
+    }else {
+        for (int i = 0; i < this->inventory.size(); i++) {
+            cout << inventory[i]->getName() << '\n';
+        }
     }
 }
 
@@ -538,7 +540,7 @@ void Player::testPotion(Product* potion) {
 }
 
 Product*& Player::selectProduct(int idx) {
-    return this->inventory[idx - 1];
+    return this->inventory[idx];
 }
 
 void Player::clearInventory() {

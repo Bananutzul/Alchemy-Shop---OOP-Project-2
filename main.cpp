@@ -1,5 +1,6 @@
 #include "Shop.h"
 #include "Player.h"
+#include "Menu.h"
 #include "Product.h"
 #include "SacredIngredient.h"
 #include "CursedIngredient.h"
@@ -36,19 +37,23 @@ int main() {
     test.addProduct(new CursedIngredient("Stygian-Water", 75, 5, 50, "Myth"));
     test.addProduct(new SacredIngredient("Hero's-Sword", 250, 10, "Holy", 90));
     test.addProduct(new CursedIngredient("Devilish-Horn", 175, 9, 65, "Hellish"));
+    //
+    // player.buyProduct(test.selectProduct(1));
+    // player.buyProduct(test.selectProduct(2));
+    // player.buyProduct(test.selectProduct(3));
+    // player.buyProduct(test.selectProduct(4));
+    // player.buyProduct(test.selectProduct(5));
+    // player.buyProduct(test.selectProduct(6));
+    //
+    // player.displayInventory();
+    //
+    // player.inventory.push_back(player.createPotion(player.selectProduct(5), player.selectProduct(6)));
+    //
+    // player.testPotion(player.selectProduct(5));
 
-    player.buyProduct(test.selectProduct(1));
-    player.buyProduct(test.selectProduct(2));
-    player.buyProduct(test.selectProduct(3));
-    player.buyProduct(test.selectProduct(4));
-    player.buyProduct(test.selectProduct(5));
-    player.buyProduct(test.selectProduct(6));
+    Menu menu(player, test);
 
-    player.displayInventory();
-
-    player.inventory.push_back(player.createPotion(player.selectProduct(5), player.selectProduct(6)));
-
-    player.testPotion(player.selectProduct(5));
+    menu.startMenu();
 
     return 0;
 }
