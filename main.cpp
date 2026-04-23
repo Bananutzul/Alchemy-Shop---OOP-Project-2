@@ -7,38 +7,25 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
 #include <fstream>
 #include <sstream>
+#include <vector>
+#define NOMINMAX
+#define WIN32_LEAN_AND_MEAN
+#define NOGDI
+#define NOUSER
+#define BYTE_DEFINED
+#include <windows.h>
+
 
 using namespace std;
 
-void loadInventory(const string& filename, Shop& shop) {
-    ifstream fin(filename);
-
-    string line;
-
-    while (getline(fin, line)) {
-        stringstream ss(line);
-        string type, name, essence;
-        double basePrice, essenceLevel;
-        int quality;
-
-        if (ss >> type >> name >> basePrice >> quality >> essence >> essenceLevel) {
-            if (type == "Sacred") {
-                shop.addProduct(new SacredIngredient(name, basePrice, quality, essence, essenceLevel));
-            }else if (type == "Cursed"){
-                shop.addProduct(new CursedIngredient(name, basePrice, quality, essenceLevel, essence));
-            }else cout << "Not a valid item!\n";
-        }
-
-        cout << "Product read\n";
-    }
-
-    fin.close();
-}
-
 int main() {
+
+    HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+    DWORD dwMode = 0;
+    GetConsoleMode(hOut, &dwMode);
+    SetConsoleMode(hOut, dwMode | 0x0004);
 
     Shop test("Alchemy Shop");
     Player player("Horia", 5000.0);
@@ -47,26 +34,21 @@ int main() {
     test.addProduct(new CursedIngredient("Medusa's-Eye", 200, 9, 85, "Earth"));
     test.addProduct(new SacredIngredient("Leviathan-Tear", 120, 7, "Oceanic", 60));
     test.addProduct(new CursedIngredient("Stygian-Water", 75, 5, 50, "Myth"));
+    test.addProduct(new SacredIngredient("Hero's-Sword", 250, 10, "Holy", 90));
+    test.addProduct(new CursedIngredient("Devilish-Horn", 175, 9, 65, "Hellish"));
 
     player.buyProduct(test.selectProduct(1));
     player.buyProduct(test.selectProduct(2));
     player.buyProduct(test.selectProduct(3));
     player.buyProduct(test.selectProduct(4));
+    player.buyProduct(test.selectProduct(5));
+    player.buyProduct(test.selectProduct(6));
 
     player.displayInventory();
 
-    player.inventory.push_back(player.createPotion(player.selectProduct(1), player.selectProduct(4)));
+    player.inventory.push_back(player.createPotion(player.selectProduct(3), player.selectProduct(1)));
 
-    player.displayInventory();
+    player.testPotion(player.selectProduct(5));
 
-    // cout << player.getBalance() << '\n';
-    //
-    // player.displayInventory();
-    // player.sellPotion(0, test);
-    //
-    // cout << player.getBalance() << '\n';
-    //
-    // player.displayInventory();
-    //
-    // test.displayInventory();
+    return 0;
 }

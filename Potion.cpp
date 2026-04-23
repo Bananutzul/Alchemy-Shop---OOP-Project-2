@@ -73,3 +73,7 @@ Product* Potion::clone() const {
 const double Potion::getStability() const {
     return stability;
 }
+
+const string Potion::getEssence() const {
+    return essence;
+}

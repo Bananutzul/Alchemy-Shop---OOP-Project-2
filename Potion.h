@@ -26,5 +26,6 @@ public:
 
     void setStability(double temp);
     void setName(string temp);
+    const string getEssence() const;
     const double getStability() const;
 };

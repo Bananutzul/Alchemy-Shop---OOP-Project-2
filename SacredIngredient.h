@@ -22,4 +22,5 @@ public:
     double addToPotion() override;
     double calculatePrice() const override;
     virtual Product* clone() const override;
+    const string getEssence() const;
 };

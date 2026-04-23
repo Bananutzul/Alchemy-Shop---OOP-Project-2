@@ -1,4 +1,7 @@
 Sacred Phoenix-Ash 100 8 Flame 75
 Sacred Leviathan-Tear 120 7 Oceanic 60
+Sacred Hero's-Sword 250 10 Holy 90
+
 Cursed Stygian-Water 75 5 Myth 50
 Cursed Medusa's-Eye 200 9 Earth 85
+Cursed Devilish-Horn 175 9 Hellish 65

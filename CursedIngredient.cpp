@@ -42,3 +42,7 @@ double CursedIngredient::calculatePrice() const {
 Product* CursedIngredient::clone() const {
     return new CursedIngredient(*this);
 }
+
+const string CursedIngredient::getEssence() const {
+    return curseType;
+}

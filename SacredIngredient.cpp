@@ -42,3 +42,7 @@ double SacredIngredient::calculatePrice() const {
 Product* SacredIngredient::clone() const {
     return new SacredIngredient(*this);
 }
+
+const string SacredIngredient::getEssence() const {
+    return essence;
+}

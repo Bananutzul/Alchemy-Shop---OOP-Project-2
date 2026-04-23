@@ -4,6 +4,60 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <thread>
+#include <chrono>
+
+#define NOMINMAX
+#define WIN32_LEAN_AND_MEAN
+#define NOGDI
+#define NOUSER
+#define BYTE_DEFINED
+#include <windows.h>
+
+using namespace std;
+
+void delay(int ms) {
+    std::this_thread::sleep_for(std::chrono::milliseconds(ms));
+}
+
+void playExplosion() {
+    const char* frames[] = {
+        "      *      \n",
+
+        "    * + *    \n",
+
+        "  * + * + *  \n",
+
+        "* + * + * + *\n",
+
+        " + . + . + . \n",
+
+        "  . . . . .  \n",
+
+        "   .  .  .  \n",
+
+        "      .       \n"
+    };
+
+    const char* culori[] = {
+        "\033[31m",
+        "\033[31m",
+        "\033[31m",
+        "\033[31m",
+        "\033[31m",
+        "\033[31m",
+        "\033[31m",
+        "\033[31m"
+    };
+
+    for (int i = 0; i < 8; i++) {
+        std::cout << "\033[1m" << culori[i]
+                  << frames[i]
+                  << "\033[0m" << std::flush;
+        delay(120);
+    }
+}
+
 
 using namespace std;
 
@@ -100,23 +154,33 @@ Potion* Player::createPotion(Product* &prod1, Product* &prod2) {
     int avgQuality = (prod1->getQuality() + prod2->getQuality()) / 2;
     int avgBasePrice = (prod1->calculatePrice() + prod2->calculatePrice()) / 2.0;
     string potion_name = "Potion of " + prod1->getName() + " and " + prod2->getName();
-    string sacred_essence = "Neutral", cursed_essence = "Neutral";
+    string sacred_essence = "", cursed_essence = "", combined_essence;
 
     SacredIngredient* s1 = dynamic_cast<SacredIngredient*>(prod1);
     CursedIngredient* c1 = dynamic_cast<CursedIngredient*>(prod1);
     SacredIngredient* s2 = dynamic_cast<SacredIngredient*>(prod2);
     CursedIngredient* c2 = dynamic_cast<CursedIngredient*>(prod2);
 
-    if (s1 != nullptr)
+    if (s1 != nullptr) {
         sacred_score += s1->addToPotion();
-    if (c1 != nullptr)
+        sacred_essence = s1->getEssence();
+    }else if (c1 != nullptr) {
         cursed_score += c1->addToPotion();
-    if (s2 != nullptr)
-        sacred_score += s2->addToPotion();
-    if (c2 != nullptr)
-        cursed_score += c2->addToPotion();
+        cursed_essence = c1->getEssence();
+    }
 
-    Potion* temp = new Potion(potion_name, avgBasePrice, avgQuality, sacred_score, sacred_essence, cursed_score, cursed_essence);
+    if (s2 != nullptr) {
+        sacred_score += s2->addToPotion();
+        sacred_essence += s2->getEssence();
+    }
+    else if (c2 != nullptr) {
+        cursed_score += c2->addToPotion();
+        cursed_essence += c2->getEssence();
+    }
+
+    combined_essence = sacred_essence + cursed_essence;
+
+    Potion* temp = new Potion(potion_name, avgBasePrice, avgQuality, sacred_score, combined_essence, cursed_score, combined_essence);
 
     delete prod1;
     delete prod2;
@@ -127,6 +191,8 @@ Potion* Player::createPotion(Product* &prod1, Product* &prod2) {
     this->clearInventory();
 
     cout << temp->getStability() << '\n';
+
+    cout << temp->getEssence() << '\n';
 
     return temp;
 }
@@ -154,9 +220,33 @@ void Player::testPotion(Product* potion) {
 
     if (s != nullptr) {
         if (s->getStability() < 50) {
-            cout << "The concoction wasn't stable and exploded in your hands!\n";
+            cout << "You try prying the lid off of the container, but it won't budge. After minutes of effort, you triumph, but the concoction isn't stable and explodes in your hands!\n";
+
+            delay(200);
+
+            playExplosion();
         }else {
-            
+            string potion_essence = s->getEssence();
+
+            if (potion_essence == "FlameMyth") {
+                //
+            }else if (potion_essence == "FlameEarth") {
+
+            }else if (potion_essence == "FlameHellish") {
+
+            }else if (potion_essence == "OceanicMyth") {
+
+            }else if (potion_essence == "OceanicEarth") {
+
+            }else if (potion_essence == "OceanicHellish") {
+
+            }else if (potion_essence == "HolyMyth") {
+
+            }else if (potion_essence == "HolyEarth") {
+
+            }else if (potion_essence == "HolyHellish") {
+
+            }
         }
     }else {
         cout << "Not a potion!\n";
