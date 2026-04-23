@@ -97,3 +97,13 @@ void Shop::itemDescription(int idx) {
 const vector<Product*>& Shop::getInventory() const {
     return this->inventory;
 }
+
+void Shop::removeProduct(Product* prod) {
+    for (int i = 0; i < inventory.size(); i++) {
+        if (inventory[i] == prod) {
+            delete inventory[i];
+            inventory.erase(inventory.begin() + i);
+            break;
+        }
+    }
+}

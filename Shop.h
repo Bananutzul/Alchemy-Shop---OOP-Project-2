@@ -23,5 +23,6 @@ public:
     Product* selectProduct(int idx);
     void displayInventory();
     void itemDescription(int idx);
+    void removeProduct(Product* prod);
     const vector<Product*>& getInventory() const;
 };

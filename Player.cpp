@@ -401,7 +401,7 @@ void Player::setBalance(double ammount) {
 }
 
 
-void Player::buyProduct(Product* prod) {
+void Player::buyProduct(Product* prod, Shop& shop) {
     
     double price = prod->calculatePrice();
     double curr_balance = this->getBalance();
@@ -420,6 +420,8 @@ void Player::buyProduct(Product* prod) {
         this->inventory.push_back(prod->clone());
         
         this->setBalance(price * -1);
+
+        shop.removeProduct(prod);
     }
 
 }

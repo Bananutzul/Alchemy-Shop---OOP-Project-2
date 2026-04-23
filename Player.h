@@ -20,7 +20,7 @@ public:
     Player& operator=(const Player& player);
     ~Player();
 
-    void buyProduct(Product* prod);
+    void buyProduct(Product* prod, Shop& shop);
     Product*& selectProduct(int idx);
     Potion* createPotion(Product* &prod1, Product* &prod2);
     void testPotion(Product* potion);

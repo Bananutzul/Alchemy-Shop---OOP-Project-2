@@ -96,7 +96,7 @@ void Menu::startMenu() {
                                 if (temp < 0 || temp >= shop.getInventory().size()) {
                                     throw InvalidOptionException("Index Out of Range!\n");
                                 }else {
-                                    player.buyProduct(shop.selectProduct(temp));
+                                    player.buyProduct(shop.selectProduct(temp), shop);
                                     cout << "You successfully bought the product!\n";
                                 }
                             }
@@ -161,6 +161,11 @@ void Menu::startMenu() {
                             auto s2 = dynamic_cast<SacredIngredient*>(player.selectProduct(temp2));
                             auto c1 = dynamic_cast<CursedIngredient*>(player.selectProduct(temp1));
                             auto c2 = dynamic_cast<CursedIngredient*>(player.selectProduct(temp2));
+                            auto p1 = dynamic_cast<Potion*>(player.selectProduct(temp1));
+                            auto p2 = dynamic_cast<Potion*>(player.selectProduct(temp2));
+
+                            if (p1 != nullptr || p2 != nullptr)
+                                throw InvalidOptionException("You can't use a potion to create another potion!");
 
                             if ((s1 != nullptr || c1 != nullptr) && (s2 != nullptr || c2 != nullptr)) {
                                 Potion* potion = player.createPotion(player.selectProduct(temp1), player.selectProduct(temp2));
@@ -169,7 +174,7 @@ void Menu::startMenu() {
 
                                 player.setBalance(potion_price);
 
-                                player.buyProduct(potion);
+                                player.buyProduct(potion, shop);
 
                                 cout << "You have successfully created a potion!\n";
                             }else throw InvalidOptionException("You haven't selected valid ingredients!\n");
@@ -216,6 +221,52 @@ void Menu::startMenu() {
                         } catch (const InvalidOptionException& e) {
                             cout << "\nERROR: " << e.what() << '\n';
                         }
+
+                        waitForEnter();
+                        break;
+                    case 5:
+                        clearScreen();
+
+                        try {
+                            cout << "---Your Inventory---\n";
+                            player.displayInventory();
+
+                            if (player.getInventory().size() == 0)
+                                throw InvalidOptionException("You don't have any items!\n");
+                            else {
+                                cout << "Choose a potion to sell!(Must be a potion)\n";
+
+                                int temp;
+
+                                if (!(cin >> temp)) {
+                                    cin.clear();
+
+                                    while (cin.get() != '\n')
+                                        continue;
+
+                                    throw InvalidOptionException("Invalid Option!\n");
+                                }else {
+                                    temp--;
+
+                                    if (temp < 0 || temp >= player.getInventory().size())
+                                        throw InvalidOptionException("Index Out of Range!\n");
+
+                                    else if (dynamic_cast<Potion*>(player.selectProduct(temp)) == nullptr)
+                                        throw InvalidOptionException("\nYou can't test something that's not a potion!!\n");
+
+                                    player.sellPotion(temp, shop);
+                                }
+                            }
+                        } catch (const InvalidOptionException& e) {
+                            cout << "\nERROR: " << e.what() << '\n';
+                        }
+
+                        waitForEnter();
+                        break;
+                    case 6:
+                        clearScreen();
+
+                        cout << "To be implemented\n";
 
                         waitForEnter();
                         break;
