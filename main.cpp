@@ -46,7 +46,7 @@ int main() {
 
     player.displayInventory();
 
-    player.inventory.push_back(player.createPotion(player.selectProduct(3), player.selectProduct(1)));
+    player.inventory.push_back(player.createPotion(player.selectProduct(5), player.selectProduct(6)));
 
     player.testPotion(player.selectProduct(5));
 

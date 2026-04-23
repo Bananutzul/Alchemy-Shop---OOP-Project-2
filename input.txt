@@ -5,3 +5,22 @@ Sacred Hero's-Sword 250 10 Holy 90
 Cursed Stygian-Water 75 5 Myth 50
 Cursed Medusa's-Eye 200 9 Earth 85
 Cursed Devilish-Horn 175 9 Hellish 65
+
+"\033[30m"  // negru
+"\033[31m"  // rosu
+"\033[32m"  // verde
+"\033[33m"  // galben
+"\033[34m"  // albastru
+"\033[35m"  // mov
+"\033[36m"  // cyan
+"\033[37m"  // alb
+"\033[90m"  // gri
+
+// Culori deschise (bright)
+"\033[91m"  // rosu aprins
+"\033[92m"  // verde aprins
+"\033[93m"  // galben aprins
+"\033[94m"  // albastru deschis
+"\033[95m"  // mov deschis
+"\033[96m"  // cyan deschis
+"\033[97m"  // alb stralucitor

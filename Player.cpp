@@ -51,13 +51,297 @@ void playExplosion() {
     };
 
     for (int i = 0; i < 8; i++) {
-        std::cout << "\033[1m" << culori[i]
+        cout << "\033[1m" << culori[i]
                   << frames[i]
-                  << "\033[0m" << std::flush;
+                  << "\033[0m";
         delay(120);
     }
 }
 
+void playFlameMyth() {
+    const char* frames[] = {
+        "        *        \n",
+        "      * + *      \n",
+        "    *+  +  +*    \n",
+        "   + * (|) * +   \n",
+        "  *+--( + )--+*  \n",
+        "   + * (|) * +   \n",
+        "    *+  +  +*    \n",
+        "      * + *      \n",
+        "        *        \n"
+    };
+
+    const char* culori[] = {
+        "\033[35m",
+        "\033[35m",
+        "\033[95m",
+        "\033[93m",
+        "\033[93m",
+        "\033[93m",
+        "\033[35m",
+        "\033[35m",
+        "\033[35m"
+    };
+
+    for (int i = 0; i < 9; i++) {
+        cout << "\033[1m" << culori[i]
+                  << frames[i]
+                  << "\033[0m";
+        delay(120);
+    }
+}
+
+void playFlameEarth() {
+    const char* frames[] = {
+        "        ~        \n",
+        "      ~ ) ~      \n",
+        "    ~)  )  )~    \n",
+        "   ) ~ (()) ~ )   \n",
+        "  ~)--( ) )--()  \n",
+        "   ) ~ (()) ~ )   \n",
+        "    ~)  )  )~    \n",
+        "      ~ ) ~      \n",
+        "        ~        \n"
+    };
+
+    const char* culori[] = {
+        "\033[32m",
+        "\033[33m",
+        "\033[32m",
+        "\033[33m",
+        "\033[32m",
+        "\033[33m",
+        "\033[32m",
+        "\033[33m",
+        "\033[32m"
+    };
+
+    for (int i = 0; i < 9; i++) {
+        cout << "\033[1m" << culori[i]
+                  << frames[i]
+                  << "\033[0m";
+        delay(120);
+    }
+}
+
+void playFlameHellish() {
+    const char* frames[] = {
+        "        !        \n",
+        "      ! X !      \n",
+        "    !X  X  X!    \n",
+        "   X ! |||/ ! X   \n",
+        "  !X--( X )--X!  \n",
+        "   X ! /||| ! X   \n",
+        "    !X  X  X!    \n",
+        "      ! X !      \n",
+        "        !        \n"
+    };
+
+    const char* culori[] = {
+        "\033[91m",
+        "\033[91m",
+        "\033[93m",
+        "\033[93m",
+        "\033[30m",
+        "\033[93m",
+        "\033[93m",
+        "\033[91m",
+        "\033[91m"
+    };
+
+    for (int i = 0; i < 9; i++) {
+        cout << "\033[1m" << culori[i]
+                  << frames[i]
+                  << "\033[0m";
+        delay(120);
+    }
+}
+
+void playOceanMyth() {
+    const char* frames[] = {
+        "  ~  ~  ~  ~  ~  \n",
+        " ~~~ ~~~ ~~~ ~~~  \n",
+        "~~~~~~~~~~~~~~~~~~~~\n",
+        " ~~*~~~*~~~*~~~*~~\n",
+        "~~~~~~~~~~~~~~~~~~~~\n",
+        " ~~~ ~~~ ~~~ ~~~  \n",
+        "  ~  ~  ~  ~  ~  \n"
+    };
+
+    const char* culori[] = {
+        "\033[34m",
+        "\033[34m",
+        "\033[94m",
+        "\033[92m",
+        "\033[94m",
+        "\033[34m",
+        "\033[34m"
+    };
+
+    for (int i = 0; i < 7; i++) {
+        cout << "\033[1m" << culori[i]
+                  << frames[i]
+                  << "\033[0m";
+        delay(120);
+    }
+}
+
+void playOceanEarth() {
+    const char* frames[] = {
+        "  _  _  _  _  _  \n",
+        " ___ ___ ___ ___  \n",
+        "____________________\n",
+        " __~___~___~___~__\n",
+        "____________________\n",
+        " ___ ___ ___ ___  \n",
+        "  _  _  _  _  _  \n"
+    };
+
+    const char* culori[] = {
+        "\033[34m",
+        "\033[34m",
+        "\033[90m",
+        "\033[30m",
+        "\033[90m",
+        "\033[34m",
+        "\033[34m"
+    };
+
+    for (int i = 0; i < 7; i++) {
+        cout << "\033[1m" << culori[i]
+                  << frames[i]
+                  << "\033[0m";
+        delay(120);
+    }
+}
+
+void playOceanHellish() {
+    const char* frames[] = {
+        "  x  x  x  x  x  \n",
+        " xxx xxx xxx xxx  \n",
+        "xxxxxxxxxxxxxxxxxxxx\n",
+        " xx*xxx*xxx*xxx*xx\n",
+        "xxxxxxxxxxxxxxxxxxxx\n",
+        " xxx xxx xxx xxx  \n",
+        "  x  x  x  x  x  \n"
+    };
+
+    const char* culori[] = {
+        "\033[31m",
+        "\033[31m",
+        "\033[35m",
+        "\033[91m",
+        "\033[35m",
+        "\033[31m",
+        "\033[31m"
+    };
+
+    for (int i = 0; i < 7; i++) {
+        cout << "\033[1m" << culori[i]
+                  << frames[i]
+                  << "\033[0m";
+        delay(120);
+    }
+}
+
+void playHolyMyth() {
+    const char* frames[] = {
+        "        |        \n",
+        "       |||       \n",
+        "      |||||      \n",
+        "   * ||||||| *   \n",
+        "  ** |||+||| **  \n",
+        "   * ||||||| *   \n",
+        "      |||||      \n",
+        "       |||       \n",
+        "        |        \n"
+    };
+
+    const char* culori[] = {
+        "\033[97m",
+        "\033[97m",
+        "\033[93m",
+        "\033[97m",
+        "\033[93m",
+        "\033[97m",
+        "\033[93m",
+        "\033[97m",
+        "\033[97m"
+    };
+
+    for (int i = 0; i < 9; i++) {
+        cout << "\033[1m" << culori[i]
+                  << frames[i]
+                  << "\033[0m";
+        delay(120);
+    }
+}
+
+void playHolyEarth() {
+    const char* frames[] = {
+        "        |        \n",
+        "       |||       \n",
+        "      |||||      \n",
+        "   . ||||||| .   \n",
+        "  .. |||+||| ..  \n",
+        "   . ||||||| .   \n",
+        "      |||||      \n",
+        "       |||       \n",
+        "        |        \n"
+    };
+
+    const char* culori[] = {
+        "\033[97m",
+        "\033[97m",
+        "\033[37m",
+        "\033[90m",
+        "\033[30m",
+        "\033[90m",
+        "\033[37m",
+        "\033[97m",
+        "\033[97m"
+    };
+
+    for (int i = 0; i < 9; i++) {
+        cout << "\033[1m" << culori[i]
+                  << frames[i]
+                  << "\033[0m";
+        delay(120);
+    }
+}
+
+void playHolyHellish() {
+    const char* frames[] = {
+        "        |        \n",
+        "       |||       \n",
+        "      |||||      \n",
+        "   x ||||||| x   \n",
+        "  xx |||+||| xx  \n",
+        "   x ||||||| x   \n",
+        "      |||||      \n",
+        "       |||       \n",
+        "        |        \n"
+    };
+
+    const char* culori[] = {
+        "\033[95m",
+        "\033[95m",
+        "\033[35m",
+        "\033[35m",
+        "\033[33m",
+        "\033[35m",
+        "\033[35m",
+        "\033[95m",
+        "\033[95m"
+    };
+
+    for (int i = 0; i < 9; i++) {
+        cout << "\033[1m" << culori[i]
+                  << frames[i]
+                  << "\033[0m";
+        delay(120);
+    }
+}
 
 using namespace std;
 
@@ -229,23 +513,23 @@ void Player::testPotion(Product* potion) {
             string potion_essence = s->getEssence();
 
             if (potion_essence == "FlameMyth") {
-                //
+                playFlameMyth();
             }else if (potion_essence == "FlameEarth") {
-
+                playFlameEarth();
             }else if (potion_essence == "FlameHellish") {
-
+                playFlameHellish();
             }else if (potion_essence == "OceanicMyth") {
-
+                playOceanMyth();
             }else if (potion_essence == "OceanicEarth") {
-
+                playOceanEarth();
             }else if (potion_essence == "OceanicHellish") {
-
+                playOceanHellish();
             }else if (potion_essence == "HolyMyth") {
-
+                playHolyMyth();
             }else if (potion_essence == "HolyEarth") {
-
+                playHolyEarth();
             }else if (potion_essence == "HolyHellish") {
-
+                playHolyHellish();
             }
         }
     }else {
