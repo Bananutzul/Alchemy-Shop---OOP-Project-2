@@ -25,4 +25,7 @@ public:
     void itemDescription(int idx);
     void removeProduct(Product* prod);
     const vector<Product*>& getInventory() const;
+
+    void saveToFile();
+    void loadFromFile(const string& FILENAME);
 };

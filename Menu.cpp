@@ -58,7 +58,7 @@ void Menu::startMenu() {
         cout << "3.Create a potion\n";
         cout << "4.Test a potion\n";
         cout << "5.Sell a potion\n";
-        cout << "6.Restock\n";
+        cout << "6.Restock (costs 200)\n";
         cout << "0.Exit\n";
 
         try {
@@ -77,6 +77,13 @@ void Menu::startMenu() {
                         clearScreen();
 
                         shop.displayInventory();
+
+                        try {
+                            if (shop.getInventory().size() == 0)
+                                throw InvalidOptionException("Shop is empty!\n");
+                        } catch (const InvalidOptionException& e) {
+                            cout << "ERROR : " << e.what() << endl;
+                        }
 
                         cout << "\nChoose an item to purchase!\n";
 
@@ -99,6 +106,7 @@ void Menu::startMenu() {
                                     player.buyProduct(shop.selectProduct(temp), shop);
                                     cout << "You successfully bought the product!\n";
                                     player.saveToFile();
+                                    shop.saveToFile();
                                 }
                             }
                         } catch (const InvalidOptionException& e) {
@@ -258,6 +266,7 @@ void Menu::startMenu() {
 
                                     player.sellPotion(temp, shop);
                                     player.saveToFile();
+                                    shop.saveToFile();
                                 }
                             }
                         } catch (const InvalidOptionException& e) {
@@ -269,7 +278,20 @@ void Menu::startMenu() {
                     case 6:
                         clearScreen();
 
-                        cout << "To be implemented\n";
+                        try {
+                            if (shop.getInventory().size() != 0)
+                                throw InvalidOptionException("Can't restock the shop while it's not empty!\n");
+
+                            if (player.getBalance() < 200)
+                                throw InvalidOptionException("You have not enough money to restock!\n");
+
+                            player.setBalance(-200);
+
+                            shop.loadFromFile("inventory_shop_initial.txt");
+                            shop.saveToFile();
+                        } catch (const InvalidOptionException& e) {
+                            cout << "ERROR: " << e.what() << '\n';
+                        }
 
                         waitForEnter();
                         break;

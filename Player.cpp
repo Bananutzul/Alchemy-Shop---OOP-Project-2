@@ -612,6 +612,7 @@ void Player::loadFromFile() {
                 fin.ignore();
                 getline(fin, essence);
                 fin >> divineLevel;
+                fin.ignore();
 
                 Product* prod = new SacredIngredient(name, price, quality, essence, divineLevel);
 
@@ -628,6 +629,7 @@ void Player::loadFromFile() {
                 fin.ignore();
                 getline(fin, essence);
                 fin >> curseLevel;
+                fin.ignore();
 
                 Product* prod = new CursedIngredient(name, price, quality, curseLevel, essence);
 
@@ -647,6 +649,7 @@ void Player::loadFromFile() {
                 fin.ignore();
                 getline(fin, c_essence);
                 fin >> curseLevel;
+                fin.ignore();
 
                 Product* prod = new Potion(name, price, quality, divineLevel, d_essence, curseLevel, c_essence);
 
