@@ -28,6 +28,9 @@ public:
     void displayInventory();
     void clearInventory();
 
+    void saveToFile();
+    void loadFromFile();
+
     double getBalance() const;
     void setBalance(double ammount);
     string getName() const;

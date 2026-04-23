@@ -53,6 +53,10 @@ const int Product::getQuality() const {
     return quality;
 }
 
+const double Product::getPrice() const {
+    return price;
+}
+
 void Product::increasePrice() {
     price *= 1.15;
 }

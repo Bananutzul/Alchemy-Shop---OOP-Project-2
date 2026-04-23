@@ -25,5 +25,6 @@ public:
 
     const string getName() const;
     const int getQuality() const;
+    const double getPrice() const;
     void increasePrice();
 };

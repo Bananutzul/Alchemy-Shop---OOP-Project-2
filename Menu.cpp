@@ -98,6 +98,7 @@ void Menu::startMenu() {
                                 }else {
                                     player.buyProduct(shop.selectProduct(temp), shop);
                                     cout << "You successfully bought the product!\n";
+                                    player.saveToFile();
                                 }
                             }
                         } catch (const InvalidOptionException& e) {
@@ -177,6 +178,7 @@ void Menu::startMenu() {
                                 player.buyProduct(potion, shop);
 
                                 cout << "You have successfully created a potion!\n";
+                                player.saveToFile();
                             }else throw InvalidOptionException("You haven't selected valid ingredients!\n");
 
                         } catch (const InvalidOptionException& e) {
@@ -255,6 +257,7 @@ void Menu::startMenu() {
                                         throw InvalidOptionException("\nYou can't test something that's not a potion!!\n");
 
                                     player.sellPotion(temp, shop);
+                                    player.saveToFile();
                                 }
                             }
                         } catch (const InvalidOptionException& e) {
