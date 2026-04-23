@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "Potion.h"
+#include "Shop.h"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -125,7 +126,41 @@ Potion* Player::createPotion(Product* &prod1, Product* &prod2) {
 
     this->clearInventory();
 
+    cout << temp->getStability() << '\n';
+
     return temp;
+}
+
+void Player::sellPotion(int idx, Shop& shop) {
+    double initial_price = this->inventory[idx]->calculatePrice();
+
+    cout << "The " << this->inventory[idx]->getName() << " has a value of " << initial_price << "\n";
+
+    this->inventory[idx]->increasePrice();
+
+    shop.addProduct(this->inventory[idx]);
+
+    this->setBalance(this->inventory[idx]->calculatePrice());
+
+    delete inventory[idx];
+
+    inventory[idx] = nullptr;
+
+    this->clearInventory();
+}
+
+void Player::testPotion(Product* potion) {
+    auto s = dynamic_cast<Potion*>(potion);
+
+    if (s != nullptr) {
+        if (s->getStability() < 50) {
+            cout << "The concoction wasn't stable and exploded in your hands!\n";
+        }else {
+            
+        }
+    }else {
+        cout << "Not a potion!\n";
+    }
 }
 
 Product*& Player::selectProduct(int idx) {

@@ -69,3 +69,7 @@ void Potion::setName(string temp) {
 Product* Potion::clone() const {
     return new Potion(*this);
 }
+
+const double Potion::getStability() const {
+    return stability;
+}

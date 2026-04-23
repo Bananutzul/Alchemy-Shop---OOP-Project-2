@@ -52,3 +52,7 @@ const string Product::getName() const{
 const int Product::getQuality() const {
     return quality;
 }
+
+void Product::increasePrice() {
+    price *= 1.15;
+}

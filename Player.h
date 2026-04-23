@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include "Product.h"
+#include "Shop.h"
 #include "Potion.h"
 
 using namespace std;
@@ -23,7 +24,7 @@ public:
     Product*& selectProduct(int idx);
     Potion* createPotion(Product* &prod1, Product* &prod2);
     void testPotion(Product* potion);
-    void sellPotion(int idx);
+    void sellPotion(int idx, Shop& shop);
     void displayInventory();
     void clearInventory();
 

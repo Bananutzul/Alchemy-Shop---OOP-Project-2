@@ -25,4 +25,5 @@ public:
 
     const string getName() const;
     const int getQuality() const;
+    void increasePrice();
 };

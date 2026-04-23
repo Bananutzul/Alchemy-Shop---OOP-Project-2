@@ -41,24 +41,32 @@ void loadInventory(const string& filename, Shop& shop) {
 int main() {
 
     Shop test("Alchemy Shop");
-    Player player("Horia", 500.0);
+    Player player("Horia", 5000.0);
 
     test.addProduct(new SacredIngredient("Phoenix-Ash", 100, 8, "Flame", 75));
     test.addProduct(new CursedIngredient("Medusa's-Eye", 200, 9, 85, "Earth"));
+    test.addProduct(new SacredIngredient("Leviathan-Tear", 120, 7, "Oceanic", 60));
+    test.addProduct(new CursedIngredient("Stygian-Water", 75, 5, 50, "Myth"));
 
     player.buyProduct(test.selectProduct(1));
     player.buyProduct(test.selectProduct(2));
+    player.buyProduct(test.selectProduct(3));
+    player.buyProduct(test.selectProduct(4));
 
-    Product* item1 = player.selectProduct(1);
-    Product* item2 = player.selectProduct(2);
+    player.displayInventory();
+
+    player.inventory.push_back(player.createPotion(player.selectProduct(1), player.selectProduct(4)));
 
     player.displayInventory();
 
-    player.inventory.push_back(player.createPotion(player.selectProduct(1), player.selectProduct(2)));
-
-    player.displayInventory();
+    // cout << player.getBalance() << '\n';
+    //
     // player.displayInventory();
-    // player.buyProduct(test.selectProduct(1));
+    // player.sellPotion(0, test);
+    //
+    // cout << player.getBalance() << '\n';
+    //
     // player.displayInventory();
-    // test.itemDescription(1);
+    //
+    // test.displayInventory();
 }
