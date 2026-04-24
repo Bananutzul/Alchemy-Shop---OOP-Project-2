@@ -1,4 +1,5 @@
 #include "Product.h"
+#include "Exceptions.h"
 #include <string>
 #include <iostream>
 
@@ -39,12 +40,6 @@ double Product::calculatePrice() const {
     return 0;
 }
 
-ostream& operator<<(ostream& os, const Product& prod) {
-    os << "Product : " << prod.name << " has a price of " << prod.price << " and a quality of " << prod.quality << ".\n";
-
-    return os;
-}
-
 const string Product::getName() const{
     return this->name;
 }
@@ -59,4 +54,38 @@ const double Product::getPrice() const {
 
 void Product::increasePrice() {
     price *= 1.15;
+}
+
+void Product::setName(const string& name) {
+    this->name = name;
+}
+
+istream& operator>>(istream &is, Product& prod) {
+    cout << "Name: ";
+    getline(is, prod.name);
+
+    if (prod.name.empty())
+        throw InvalidOptionException("Invalid name!");
+
+
+    cout << "Base Price: ";
+
+    double base_price;
+
+    is >> base_price;
+
+    is.ignore();
+
+    if (base_price < 0)
+        throw InvalidOptionException("Invalid base price!");
+
+    prod.price = base_price;
+
+    return is;
+}
+
+ostream& operator<<(ostream& os, const Product& prod) {
+    os << "Product : " << prod.name << " has a price of " << prod.price << " and a quality of " << prod.quality << ".\n";
+
+    return os;
 }

@@ -24,4 +24,7 @@ public:
     virtual Product* clone() const override;
     const string getEssence() const;
     const double getDivineLevel() const;
+
+    friend istream& operator>>(istream &is, SacredIngredient& prod);
+    friend ostream& operator<<(ostream &os, const SacredIngredient& prod);
 };

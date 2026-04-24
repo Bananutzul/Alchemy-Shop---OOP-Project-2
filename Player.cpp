@@ -591,8 +591,14 @@ void Player::loadFromFile() {
 
         inventory.clear();
 
-        int n;
+        getline(fin, this->name);
 
+        int n;
+        double balance;
+
+        fin >> balance;
+        fin.ignore();
+        this->balance = balance;
         fin >> n;
         fin.ignore();
 
@@ -673,6 +679,10 @@ void Player::saveToFile() {
         if (!fout.is_open())
             throw InvalidOptionException("Can't open file!");
 
+        fout << getName() << '\n';
+
+        fout << getBalance() << '\n';
+
         fout << inventory.size() << "\n";
 
         for (const auto& item : inventory) {
@@ -716,5 +726,21 @@ void Player::saveToFile() {
     } catch (const InvalidOptionException& e) {
         cout << "ERROR\n" << e.what() << "\n";
     }
+}
 
+istream& operator>>(istream& is, Player& player) {
+    cout << "Name: ";
+    is >> player.name;
+
+    cout << "\nBalance: ";
+    is >> player.balance;
+
+    return is;
+}
+
+ostream& operator<<(ostream& os, const Player& player) {
+    os << "Name: " << player.name << "\n";
+    os << "Balance: " << player.balance << "\n";
+
+    return os;
 }

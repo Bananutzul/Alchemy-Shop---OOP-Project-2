@@ -77,3 +77,38 @@ const double Potion::getStability() const {
 const string Potion::getEssence() const {
     return essence;
 }
+
+istream& operator>>(istream& is, Potion& obj) {
+    is >> static_cast<Product&>(obj);
+
+    string divineEssence, curseEssence;
+    double divineLevel, curseLevel;
+
+    cout << "Divine essence: ";
+    getline(is, divineEssence);
+    cout << "\nCursed essence: ";
+    getline(is, curseEssence);
+
+    cout << "\nDivine level: ";
+    is >> divineLevel;
+    is.ignore();
+
+    cout << "\nCursed level: ";
+    is >> curseLevel;
+    is.ignore();
+
+    obj.divineLevel = divineLevel;
+    obj.curseLevel = curseLevel;
+    obj.essence = divineEssence;
+    obj.curseType = curseEssence;
+
+    return is;
+}
+
+ostream& operator<<(ostream& os, const Potion& obj) {
+    os << static_cast<const Product&>(obj);
+
+    os << "  Stability: " << obj.stability << endl;
+
+    return os;
+}

@@ -22,4 +22,6 @@ public:
     const string getEssence() const;
     const double getCurseLevel() const;
 
+    friend istream& operator>>(istream &is, CursedIngredient& prod);
+    friend ostream& operator<<(ostream &os, const CursedIngredient& prod);
 };

@@ -1,4 +1,5 @@
 #include "CursedIngredient.h"
+#include "Exceptions.h"
 #include <string>
 #include <iostream>
 
@@ -49,4 +50,30 @@ const string CursedIngredient::getEssence() const {
 
 const double CursedIngredient::getCurseLevel() const {
     return curseLevel;
+}
+
+istream& operator>>(istream &is, CursedIngredient& obj) {
+    is >> static_cast<Product&>(obj);
+
+    cout << "Essence: ";
+    getline(is, obj.curseType);
+
+    if (obj.curseType.empty())
+        throw InvalidOptionException("Not a valid essence!");
+
+    cout << "\nDivine level: ";
+    is >> obj.curseLevel;
+
+    if (obj.curseLevel < 0 || obj.curseLevel > 100)
+        throw InvalidOptionException("Divine level must be between 0 and 100!");
+
+    return is;
+}
+
+ostream& operator<<(ostream &os, const CursedIngredient& obj) {
+    os << static_cast<const Product&>(obj);
+
+    os << "Essence : " << obj.curseType << "\n";
+
+    return os;
 }

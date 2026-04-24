@@ -34,10 +34,13 @@ int main() {
     SetConsoleMode(hOut, dwMode | 0x0004);
 
     Shop test("Alchemy Shop");
-    Player player("Horia", 5000.0);
+    Player player;
 
     player.loadFromFile();
     test.loadFromFile(FILENAME_SHOP);
+
+    if (player.getName().empty())
+        cin >> player, player.saveToFile();
 
     Menu menu(player, test);
 

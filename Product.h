@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -27,4 +28,8 @@ public:
     const int getQuality() const;
     const double getPrice() const;
     void increasePrice();
+    void setName(const string& name);
+
+    friend istream& operator>>(istream &is, Product& prod);
+    friend ostream& operator<<(ostream &os, const Product& prod);
 };

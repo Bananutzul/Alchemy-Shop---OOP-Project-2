@@ -50,7 +50,7 @@ void Menu::startMenu() {
 
         shop.displayInventory();
 
-        cout << "\nCurrent balance : " << player.getBalance() << '\n' << '\n';
+        cout << "\n" << player.getName() << "'s balance : " << player.getBalance() << '\n' << '\n';
 
         cout << "---Choose an option---\n";
         cout << "1.Buy a product\n";

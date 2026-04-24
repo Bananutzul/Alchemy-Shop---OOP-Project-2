@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include <string>
 #include <vector>
 #include "Product.h"
@@ -35,4 +36,7 @@ public:
     void setBalance(double ammount);
     string getName() const;
     const vector<Product*>& getInventory() const;
+
+    friend istream& operator>>(istream& is, Player& player);
+    friend ostream& operator<<(ostream& os, const Player& player);
 };

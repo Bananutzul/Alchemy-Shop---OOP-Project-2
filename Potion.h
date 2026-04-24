@@ -28,4 +28,7 @@ public:
     void setName(string temp);
     const string getEssence() const;
     const double getStability() const;
+
+    friend istream& operator>>(istream& is, Potion& obj);
+    friend ostream& operator<<(ostream& os, const Potion& obj);
 };
