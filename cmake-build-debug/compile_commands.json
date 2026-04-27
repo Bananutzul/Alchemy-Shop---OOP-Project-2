@@ -1,0 +1,50 @@
+[
+{
+  "directory": "C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/cmake-build-debug",
+  "command": "\"C:\\PROGRA~1\\JetBrains\\CLion 2026.1\\bin\\mingw\\bin\\g++.exe\" -g -std=gnu++17 -fdiagnostics-color=always -o CMakeFiles\\AlchemyShop.dir\\main.cpp.obj -c C:\\Users\\user\\Desktop\\Facultate\\Proiect2POO\\Alchemy-Shop---OOP-Project-2\\main.cpp",
+  "file": "C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/main.cpp",
+  "output": "C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/cmake-build-debug/CMakeFiles/AlchemyShop.dir/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/cmake-build-debug",
+  "command": "\"C:\\PROGRA~1\\JetBrains\\CLion 2026.1\\bin\\mingw\\bin\\g++.exe\" -g -std=gnu++17 -fdiagnostics-color=always -o CMakeFiles\\AlchemyShop.dir\\Product.cpp.obj -c C:\\Users\\user\\Desktop\\Facultate\\Proiect2POO\\Alchemy-Shop---OOP-Project-2\\Product.cpp",
+  "file": "C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/Product.cpp",
+  "output": "C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/cmake-build-debug/CMakeFiles/AlchemyShop.dir/Product.cpp.obj"
+},
+{
+  "directory": "C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/cmake-build-debug",
+  "command": "\"C:\\PROGRA~1\\JetBrains\\CLion 2026.1\\bin\\mingw\\bin\\g++.exe\" -g -std=gnu++17 -fdiagnostics-color=always -o CMakeFiles\\AlchemyShop.dir\\SacredIngredient.cpp.obj -c C:\\Users\\user\\Desktop\\Facultate\\Proiect2POO\\Alchemy-Shop---OOP-Project-2\\SacredIngredient.cpp",
+  "file": "C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/SacredIngredient.cpp",
+  "output": "C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/cmake-build-debug/CMakeFiles/AlchemyShop.dir/SacredIngredient.cpp.obj"
+},
+{
+  "directory": "C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/cmake-build-debug",
+  "command": "\"C:\\PROGRA~1\\JetBrains\\CLion 2026.1\\bin\\mingw\\bin\\g++.exe\" -g -std=gnu++17 -fdiagnostics-color=always -o CMakeFiles\\AlchemyShop.dir\\CursedIngredient.cpp.obj -c C:\\Users\\user\\Desktop\\Facultate\\Proiect2POO\\Alchemy-Shop---OOP-Project-2\\CursedIngredient.cpp",
+  "file": "C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/CursedIngredient.cpp",
+  "output": "C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/cmake-build-debug/CMakeFiles/AlchemyShop.dir/CursedIngredient.cpp.obj"
+},
+{
+  "directory": "C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/cmake-build-debug",
+  "command": "\"C:\\PROGRA~1\\JetBrains\\CLion 2026.1\\bin\\mingw\\bin\\g++.exe\" -g -std=gnu++17 -fdiagnostics-color=always -o CMakeFiles\\AlchemyShop.dir\\Potion.cpp.obj -c C:\\Users\\user\\Desktop\\Facultate\\Proiect2POO\\Alchemy-Shop---OOP-Project-2\\Potion.cpp",
+  "file": "C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/Potion.cpp",
+  "output": "C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/cmake-build-debug/CMakeFiles/AlchemyShop.dir/Potion.cpp.obj"
+},
+{
+  "directory": "C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/cmake-build-debug",
+  "command": "\"C:\\PROGRA~1\\JetBrains\\CLion 2026.1\\bin\\mingw\\bin\\g++.exe\" -g -std=gnu++17 -fdiagnostics-color=always -o CMakeFiles\\AlchemyShop.dir\\Shop.cpp.obj -c C:\\Users\\user\\Desktop\\Facultate\\Proiect2POO\\Alchemy-Shop---OOP-Project-2\\Shop.cpp",
+  "file": "C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/Shop.cpp",
+  "output": "C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/cmake-build-debug/CMakeFiles/AlchemyShop.dir/Shop.cpp.obj"
+},
+{
+  "directory": "C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/cmake-build-debug",
+  "command": "\"C:\\PROGRA~1\\JetBrains\\CLion 2026.1\\bin\\mingw\\bin\\g++.exe\" -g -std=gnu++17 -fdiagnostics-color=always -o CMakeFiles\\AlchemyShop.dir\\Player.cpp.obj -c C:\\Users\\user\\Desktop\\Facultate\\Proiect2POO\\Alchemy-Shop---OOP-Project-2\\Player.cpp",
+  "file": "C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/Player.cpp",
+  "output": "C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/cmake-build-debug/CMakeFiles/AlchemyShop.dir/Player.cpp.obj"
+},
+{
+  "directory": "C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/cmake-build-debug",
+  "command": "\"C:\\PROGRA~1\\JetBrains\\CLion 2026.1\\bin\\mingw\\bin\\g++.exe\" -g -std=gnu++17 -fdiagnostics-color=always -o CMakeFiles\\AlchemyShop.dir\\Menu.cpp.obj -c C:\\Users\\user\\Desktop\\Facultate\\Proiect2POO\\Alchemy-Shop---OOP-Project-2\\Menu.cpp",
+  "file": "C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/Menu.cpp",
+  "output": "C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/cmake-build-debug/CMakeFiles/AlchemyShop.dir/Menu.cpp.obj"
+}
+]

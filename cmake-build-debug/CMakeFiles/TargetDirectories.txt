@@ -1,0 +1,3 @@
+C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/cmake-build-debug/CMakeFiles/AlchemyShop.dir
+C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/user/Desktop/Facultate/Proiect2POO/Alchemy-Shop---OOP-Project-2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
